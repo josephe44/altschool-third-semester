@@ -1,6 +1,8 @@
 <template>
   <main>
-    <div class="header_shadow"></div>
+    <div class="header_shadow">
+      <i class="fa-brands fa-github"></i>
+    </div>
     <div class="go_back_btn">
       <RouterLink to="/repos">
         <button class="go_back">Go back</button>
@@ -126,6 +128,13 @@ main {
   height: 165px;
   width: 100%;
   background-color: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_shadow i {
+  font-size: 100px;
 }
 
 .go_back_btn {

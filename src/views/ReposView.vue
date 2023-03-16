@@ -1,6 +1,8 @@
 <template>
   <main>
-    <div class="header_shadow"></div>
+    <div class="header_shadow">
+      <i class="fa-brands fa-github"></i>
+    </div>
     <!-- ui card for git repo card list grid view -->
     <div class="repo_container_grid">
       <ul v-for="repo in paginateRepo" :key="repo.id">
@@ -81,8 +83,14 @@ main {
   height: 165px;
   width: 100%;
   background-color: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.header_shadow i {
+  font-size: 100px;
+}
 .repo_container_grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
