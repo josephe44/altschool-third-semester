@@ -6,14 +6,18 @@ import { RouterLink, RouterView } from 'vue-router'
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Eworld</RouterLink>
+        <p>Eworld</p>
         <div>
           <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/repos">Repos</RouterLink>
         </div>
-        <div>
-          <span>github</span>
-          <span>twitter</span>
+        <div class="social_icons">
+          <a href="https://twitter.com/Eworld_Tech" target="_blank"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a href="https://github.com/josephe44" target="_blank"
+            ><i class="fa-brands fa-github"></i
+          ></a>
         </div>
       </nav>
     </div>
@@ -55,5 +59,18 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
+}
+
+.social_icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social_icons a {
+  color: #000;
+  border: none;
+  padding: 0;
 }
 </style>

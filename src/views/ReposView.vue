@@ -6,7 +6,7 @@
       <ul v-for="repo in paginateRepo" :key="repo.id">
         <li>{{ repo.name }}</li>
         <div class="repo_btn">
-          <RouterLink :to="{ name: 'repo', params: { id: repo.id } }">
+          <RouterLink :to="{ name: 'repo', params: { id: repo.name } }">
             <button>View</button>
           </RouterLink>
         </div>

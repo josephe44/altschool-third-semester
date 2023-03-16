@@ -15,7 +15,9 @@
         </div>
         <div class="group-btn">
           <div class="profile_btn">
-            <button>View Profile</button>
+            <a :href="user.html_url" target="_blank">
+              <button>View Profile</button>
+            </a>
           </div>
           <div class="repo_btn">
             <RouterLink to="/repos">
@@ -34,10 +36,10 @@
           <h3>Personal information</h3>
           <div class="user_bio">
             <div class="email">
-              <p>email {{ user.email ? user.email : 'eworlddata@gmail.com' }}</p>
+              <p>{{ user.email ? user.email : 'eworlddata@gmail.com' }}</p>
             </div>
             <div class="location">
-              <p>location {{ user.location }}</p>
+              <p>{{ user.location }}</p>
             </div>
           </div>
         </div>
@@ -80,12 +82,16 @@ export default {
       user: {}
     }
   },
-  async created() {
-    const response = await fetch('https://api.github.com/users/josephe44')
-    const data = await response.json()
-    this.user = data
 
-    console.log(data)
+  methods: {
+    async getUser() {
+      const response = await fetch('https://api.github.com/users/josephe44')
+      const data = await response.json()
+      this.user = data
+    }
+  },
+  created() {
+    this.getUser()
   }
 }
 </script>
@@ -159,7 +165,6 @@ main {
   color: #fff;
   padding: 10px 12px;
   border: none;
-  /* border-radius: 5px; */
   cursor: pointer;
 }
 .repo_btn button {
@@ -168,7 +173,6 @@ main {
   color: #000;
   padding: 10px 12px;
   border: 1px solid #000;
-  /* border-radius: 5px; */
   cursor: pointer;
 }
 
@@ -203,7 +207,8 @@ main {
 .user_bio {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 5px;
   margin-top: 20px;
 }
@@ -248,15 +253,11 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* flex-wrap: wrap; */
-  /* align-items: center; */
   gap: 10px;
-  /* margin-bottom: 20px; */
 }
 
 .img-card {
   width: 200px;
-  /* width: 100%; */
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
@@ -274,7 +275,6 @@ img {
   align-items: center;
   flex-direction: column;
   gap: 10px;
-  /* margin-left: 20px; */
 }
 .user-details h2 {
   margin: 5px 0;
@@ -286,37 +286,15 @@ img {
   color: #002147;
 }
 
-.email,
-.location {
-  /* display: flex; */
-  /* gap: 4px; */
-  /* align-items: center; */
-}
 .contact {
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* gap: 8px; */
 }
 
 .user-bio {
   white-space: wrap;
-  /* margin: 10px 0; */
-  /* width: 300px; */
-  /* font-size: 1rem; */
-  /* color: #002147; */
 }
-.social-flex {
-  /* display: flex;
-  align-items: center;
-  gap: 10px; */
-}
-
-/* @media (max-width: 950px) {
-  .user_container_grid {
-    flex: 0;
-  }
-} */
 
 @media (max-width: 800px) {
   .user-container {
